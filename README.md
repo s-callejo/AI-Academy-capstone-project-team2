@@ -32,36 +32,74 @@ The raw dataset has 172838 entries with 15 columns that include: 'accessed_date'
 
 ## Data Pre-Processing and Exploration
 
-### Age and Gender
-When looking into the age column, we saw that there were placeholder values that represented null items. For some reason there were 0s and  dashed lines. However, almost 50% of our data consists of these placeholder values which makes it difficult on deciding what to do with these values. We decided on just removing the those values as it was a way not to skew the data because replacing the mean, median, or mode in those values would just make an our model more biased to that value in the age feature. Additionally, since we still have a decent amount of data to use even after removing those data points, we will tset with the data that was left over and if the metrics point to having a better model with more data point then we may return to these data points and add them in. Furthermore, when researching with this column, we also learned that any unknown genders/ place holder values for the gender column was removed whenever we removed all the unknown ages. Since we are working with the data set without the unknown ages, we can skip identifying any unknown values in the gender column.
+We decided to drop 'network_protocol', 'ip', 'bytes', 'sales', and 'returned_amount'.
+
+![](/images/data_after.PNG)
+
+### Age
+When looking into the age column, we saw that there were placeholder values that represented null items. There were 0s and dashed lines. We removed those values as it was a way not to skew the data because replacing the mean, median, or mode in those values would make an our model more biased to that value in the age feature.
+
+![](/images/age.PNG) 
+
+### Gender
+The process of removing the placeholder values from the Age column also removed the Unknown values from the Gender column.
+
+![](/images/gender.PNG)
 
 ### Payment Methods
 We have 4 payment methods. No need to deal with null, duplicates, or outliers
 
+![](/images/payment_methods.PNG)
+
 ### Membership Type
 When the 0s and null value Age rows were removed, the Not Logged In membership class is removed, leaving only the normal and premium classes for the model. No need to deal with null, duplicates, or outliers.
 
+![](/images/membership_type.PNG)
+
 ### Languages
-There are 29 different languages used on the e-commerce site. The top 3 most common were English Chinese and Spanish. The format is not consistent across our data so we will capitalize the first letter of each language to provide consistency. There are no null values to address or any outliers.
+There are 29 different languages used on the e-commerce site. The top 3 most common were English Chinese and Spanish. The format is not consistent across the column so we capitalized the first letter of each language to provide consistency. There are no null values to address or any outliers.
+
+![](/images/language.PNG)
 
 ### Access Methods
-There are 7 different access methods found in the database; Android App, Chrome, Mozilla Firefox, iOS App, Safari, Microsoft Edge and Others. SafFRi is a misspelling of Safari and will be fixed before modeling. There are no null values to address or any outliers.
+There are 7 different access methods found in the database; Android App, Chrome, Mozilla Firefox, iOS App, Safari, Microsoft Edge and Others. SafFRi is a misspelling of Safari that was fixed before modeling. There are no null values to address or any outliers.
+
+![](/images/access_method.PNG)
 
 ### Countries
-There are 27 countries, all displayed as country codes, that users accessed the e-commerce site from. The top 3 were Italy, United States and Canada. No need to deal with null, duplicates, or outliers
+There are 27 countries, all displayed as country codes, that users accessed the e-commerce site from. The top 3 were Italy, United States and Canada. No need to deal with null, duplicates, or outliers.
+
+![](/images/country.PNG)
 
 ### Return (Target Variable)
-The thing that needs to be addressed with the target variable is the idea of an unbalanced data set. There is only about 15% of the data that contains customers that returned an item. Therefore, we need to test with different sampling techniques (under/over) to gte the dataset more balanced to have a better outcome with the metrics of modeling.
+The thing that needs to be addressed with the target variable is the idea of an unbalanced data set. There is only about 15% of the data that contains customers that returned an item.
 
-## Data After Pre-Processing
+![](/images/target_variable.PNG)
 
-![](/images/data_after.PNG)
+## Imbalanced Data and Solutions
 
-## Oversampling, Undersampling and SMOTE
+Our target variable being imbalanced brings a few problems; possibility of bias toward the majority class, resulting in poor performance on the minority class, metrics such as accuracy can be misleading as high accuracy can be achieved by predicting the majority class, and the model may focus more on features that help distinguish the majority class, neglecting features important for minority class prediction.
 
-As mentioned earlier the target variable in our dataset is imbalanced. This brings a few problems; possibility of bias toward the majority class, resulting in poor performance on the minority class, metrics such as accuracy can be misleading as high accuracy can be achieved by predicting the majority class, and the model may focus more on features that help distinguish the majority class, neglecting features important for minority class prediction.
+![](/images/returned_nonreturned_barchart.png)
 
-To resolve this problem we used Oversampling/Undersampling and SMOTE. Oversampling duplicates the minority class until there are an equal number of records in the minority class as majority class. Undersampling takes pieces of the majority class to reduce the used portion of the majority class to have the same number of records as the minority class. SMOTE generates new records in the minority class to increase the number of records to equal the number in the majority class.
+To resolve this problem we used Oversampling/Undersampling and SMOTE. 
+
+### Oversampling
+Oversampling duplicates the minority class until there are an equal number of records in the minority class as majority class. 
+
+![](/images/oversampling.PNG)
+
+### Undersampling
+
+Undersampling takes pieces of the majority class to reduce the used portion of the majority class to have the same number of records as the minority class. 
+
+![](/images/undersampling.PNG)
+
+### SMOTE
+
+SMOTE generates new records in the minority class to increase the number of records to equal the number in the majority class.
+
+![](/images/SMOTE.PNG)
 
 ## Modeling
 
@@ -78,16 +116,14 @@ For logistic regression, changing the hyperparameters made the oversampled set o
 
 For random forest, the hyperparameters found by grid search made the model performance worse on the unseen data. When using the over sampled set, the training accuracy went from .9586 to .9494 and the test accuracy went from .742 to .726. When using the under sampled set, the training accuracy went from .9616 to .6265 and the test accuracy went from .5149 to .3744. For the SMOTE oversampling, the same can be seen in which the model become worse when the new hyperparameters are applied.
 
-![]()
-
 In the ROC curve, we can see that the training is overfitting and the test set is only ever so slightly better than random chance.
 
-![]()
+![](/images/ROC_Curve.png)
 
 In the confusion matrix, it can contribute to the idea the model is being biased to predicting non-returned items as proposed by our imblanced data problem.
 
-![]()
+![](/images/confusion_matrix.PNG)
 
 The precion and recall table also contrinbutes to this idea as the proportions of predicting 0 (non-returned) as better than 1 (returned)
 
-![]()
+![](/images/precision_recall_table.png)
