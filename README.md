@@ -76,9 +76,41 @@ The thing that needs to be addressed with the target variable is the idea of an 
 
 ![](/images/target_variable.PNG)
 
+## Returned Items Only
+
+We also looked at the distributions for each column where the returned value is true. We found that the distributions in each column in the overall dataset and subset where returned is true are exteremely similar.
+
+### Age
+
+![](/images/r_age.PNG)
+
+### Gender
+
+![](/images/r_gender.PNG)
+
+### Payment Method
+
+![](/images/r_payment_methods.PNG)
+
+### Membership Type
+
+![](/images/r_membership_types.PNG)
+
+### Languages
+
+![](/images/r_language.PNG)
+
+### Access Methods
+
+![](/images/r_access_method.PNG)
+
+### Countries
+
+![](/images/r_country.PNG)
+
 ## Imbalanced Data and Solutions
 
-Our target variable being imbalanced brings a few problems; possibility of bias toward the majority class, resulting in poor performance on the minority class, metrics such as accuracy can be misleading as high accuracy can be achieved by predicting the majority class, and the model may focus more on features that help distinguish the majority class, neglecting features important for minority class prediction.
+As mentioned earlier, our target variable being imbalanced brings a few problems; possibility of bias toward the majority class, resulting in poor performance on the minority class, metrics such as accuracy can be misleading as high accuracy can be achieved by predicting the majority class, and the model may focus more on features that help distinguish the majority class, neglecting features important for minority class prediction.
 
 ![](/images/returned_nonreturned_barchart.png)
 
@@ -122,7 +154,7 @@ In the ROC curve, we can see that the training is overfitting and the test set i
 
 In the confusion matrix, it can contribute to the idea the model is being biased to predicting non-returned items as proposed by our imblanced data problem.
 
-![](/images/confusion_matrix.PNG)
+![](/images/confusion_matrix.png)
 
 The precion and recall table also contrinbutes to this idea as the proportions of predicting 0 (non-returned) as better than 1 (returned)
 
