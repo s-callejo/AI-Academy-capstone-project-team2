@@ -159,3 +159,9 @@ In the confusion matrix, it can contribute to the idea the model is being biased
 The precion and recall table also contrinbutes to this idea as the proportions of predicting 0 (non-returned) as better than 1 (returned)
 
 ![](/images/precision_recall_table.png)
+
+## Conclusion
+
+In conclusion, our exploration into the ecommerce dataset had shed light on critical insights and areas of improvement. First, we showcased the impact of attributes such as age, membership type, language, and gender on the likelihood of returns. For us to enhance our findings, we recognize the need for richer reviews and additional data collection. Elevating the predictive power of our model can be achieved by using neural network tailored to our dataset and introducing more detailed information on the reasons for returns. The next steps involve gathering more diverse and detailed data, embracing customer feedback to inform marketing strategies, and refining the returns process to bolster customer satisfaction and, consequently, profitability. 
+
+Given these next steps, having more data may allow us to predict whether or not an item is returned, in which that model could give insight on which features would be best to focus on that have the greatest impact on a returned item. The features that are chosen could be used for developing a marketing strategy against those features to be able to lessen that amount of returns. In addition to marketing strategies, when our model is able to predict whether an item is returned or not based on these features, we can use those predictions as a way for budgeting on a possibly monthly or quarterly basis.
