@@ -1,6 +1,7 @@
 # AI Academy Capstone Project Team 2
 ## Repo Contents
 * Download the dataset from [here](https://www.kaggle.com/datasets/willianoliveiragibin/websites-e-comerce) and place it in the folder with this readme.
+* images - folder containg all the images within the README
 * [Capstone Proposal.pdf](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/Capstone%20Proposal.pdf) - File containing capstone proposal details
 * [README.md](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/README.md) - A description of the project goals, process, and results
 * [eda.ipynb](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/eda.ipynb) - Jupyter Notebook containing Exploratory Data analysis
