@@ -6,6 +6,7 @@
 * [README.md](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/README.md) - A description of the project goals, process, and results
 * [eda.ipynb](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/eda.ipynb) - Jupyter Notebook containing Exploratory Data analysis
 * [index.ipynb](https://github.com/s-callejo/AI-Academy-capstone-project-team2/blob/main/index.ipynb) - Main Jupyter Notebook containing the models and anaylisis for the project
+* [Capstone Project.pdf](/Capstone%20Project.pdf) - The presentation for this project.
 
 ## Required Packages
 * pandas
